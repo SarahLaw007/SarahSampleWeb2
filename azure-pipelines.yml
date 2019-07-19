@@ -14,6 +14,7 @@ variables:
   dockerId: sarahlaw007
   pswd: Thomas1cat
   imageName: 
+  tag: Build.BuildNumber
 
 
 steps:
@@ -24,6 +25,6 @@ steps:
 - script: docker build --no-cache -t samplepipelinetwo .
   displayName: 'Now Tagging and Pushing'
 - script: tag=$(date "+%Yy%mm%dd%Hh%Mm%Ss")
-- script: echo "$tag"
-- script: docker tag samplepipelinetwo sarahlaw007/sample-web-app2:"$tag"
-- script: docker push sarahlaw007/sample-web-app2:"$tag"
+- script: echo $(tag)
+- script: docker tag samplepipelinetwo sarahlaw007/sample-web-app2:$(tag)
+- script: docker push sarahlaw007/sample-web-app2:$(tag)
