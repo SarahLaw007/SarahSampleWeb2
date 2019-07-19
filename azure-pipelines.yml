@@ -25,5 +25,5 @@ steps:
   displayName: 'Now Tagging and Pushing'
 - script: tag=$(date "+%Yy%mm%dd%Hh%Mm%Ss")
 - script: echo "$tag"
-- script: docker tag samplepipeline sarahlaw007/sarah_sample_web_app:"$tag"
-- script: docker push sarahlaw007/sarah_sample_web_app:"$tag"
+- script: docker tag samplepipelinetwo sarahlaw007/sample-web-app2:"$tag"
+- script: docker push sarahlaw007/sample-web-app2:"$tag"
