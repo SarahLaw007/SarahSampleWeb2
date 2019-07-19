@@ -14,7 +14,7 @@ variables:
   dockerId: sarahlaw007
   pswd: Thomas1cat
   imageName: 
-  tag: Build.BuildNumber
+  tag: $(Build.BuildNumber)
 
 
 steps:
