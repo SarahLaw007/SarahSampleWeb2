@@ -23,3 +23,7 @@ steps:
   displayName: 'Logged in... Now building and deploying...'
 - script: docker build --no-cache -t samplepipelinetwo .
   displayName: 'Now Tagging and Pushing'
+-script: tag=$(date "+%Yy%mm%dd%Hh%Mm%Ss")
+-script: echo "$tag"
+-script: docker tag samplepipeline sarahlaw007/sarah_sample_web_app:"$tag"
+-script: docker push sarahlaw007/sarah_sample_web_app:"$tag"
