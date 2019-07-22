@@ -32,4 +32,5 @@ steps:
     sshEndpoint: 'sshTry1'
     runOptions: 'inline'
     inline: |
+      cd Desktop/deployCodeADO
       ls
