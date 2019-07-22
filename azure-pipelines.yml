@@ -28,36 +28,37 @@ steps:
       cd Desktop/deployCodeADO
       ls
       rm -rf buildDeploy.sh
+      rm -rf buildDeploy.sh
+
       cat >> buildDeploy.sh <<EOF
-        #!/bin/sh
-        tag=$(Build.BuildNumber)
-        echo "\$tag"
-        USERNAME=sarahlaw007
-        PASSWORD=Thomas1cat
+      #!/bin/sh
+      tag=$(date "+%Yy%mm%dd%Hh%Mm%Ss")
+      echo "\$tag"
+      USERNAME=sarahlaw007
+      PASSWORD=Thomas1cat
 
-        docker login -u "\$USERNAME" -p "\$PASSWORD"
+      docker login -u "\$USERNAME" -p "\$PASSWORD"
 
-        echo "TAGGING..."
-        docker tag samplepipeline sarahlaw007/sample-web-app2:"\$tag"
+      echo "TAGGING..."
+      docker tag samplepipeline sarahlaw007/sample-web-app2:"\$tag"
 
-        echo "PUSHING..."
-        docker push sarahlaw007/sample-web-app2:"\$tag"
+      echo "PUSHING..."
+      docker push sarahlaw007/sample-web-app2:"\$tag"
 
-        sudo su -  << EOF
-        FILE==/home/devadmin/Desktop/trigger/samplepipeline2.txt
+      sudo su -  << EOF
+      FILE=/home/devadmin/Desktop/trigger/samplepipeline2.txt
 
-        if test -f =/home/devadmin/Desktop/trigger/samplepipeline2.txt; then
-            echo "Updating..."
-            kubectl set image deployment/pipeline-demo2 pipeline-demo2=sarahlaw007/sample-web-app2:"\$tag" --record=true
-            echo "Application updated: /$(date "+%Yy%mm%dd%Hh%Mm%Ss")" >> /home/devadmin/Desktop/trigger/samplepipeline2.txt
-        else 
-            echo "Deploying new application..."
-            kubectl run pipeline-demo2 --replicas=2 --image=sarahlaw007/sample-web-app2:"\$tag" --port=80
-            kubectl expose deployment pipeline-demo2 --type=NodePort --name=pipeline-demo2-service
-            echo "Application created: /$(date "+%Yy%mm%dd%Hh%Mm%Ss")" > /home/devadmin/Desktop/trigger/samplepipeline2.txt
+      if test -f /home/devadmin/Desktop/trigger/samplepipeline2.txt; then
+          echo "Updating..."
+          kubectl set image deployment/pipeline-demo2 pipeline-demo2=sarahlaw007/sample-web-app2:"\$tag" --record=true
+          echo "Application updated: /$(date "+%Yy%mm%dd%Hh%Mm%Ss")" >> /home/devadmin/Desktop/trigger/samplepipeline2.txt
+      else 
+          echo "Deploying new application..."
+          kubectl run pipeline-demo2 --replicas=2 --image=sarahlaw007/sample-web-app2:"\$tag" --port=80
+          kubectl expose deployment pipeline-demo2 --type=NodePort --name=pipeline-demo-service2
+          echo "Application created: /$(date "+%Yy%mm%dd%Hh%Mm%Ss")" > /home/devadmin/Desktop/trigger/samplepipeline2.txt
 
-        fi
+      fi
 
       EOF
       ./execute.sh
-
