@@ -44,17 +44,17 @@ steps:
         docker push sarahlaw007/sample-web-app2:"\$tag"
 
         sudo su -  << EOF
-        FILE=Desktop/trigger/samplepipeline2.txt
+        FILE==/home/devadmin/Desktop/trigger/samplepipeline2.txt
 
-        if test -f Desktop/trigger/samplepipeline2.txt; then
+        if test -f =/home/devadmin/Desktop/trigger/samplepipeline2.txt; then
             echo "Updating..."
             kubectl set image deployment/pipeline-demo2 pipeline-demo2=sarahlaw007/sample-web-app2:"\$tag" --record=true
-            echo "Application updated: /$(date "+%Yy%mm%dd%Hh%Mm%Ss")" >> Desktop/trigger/samplepipeline2.txt
+            echo "Application updated: /$(date "+%Yy%mm%dd%Hh%Mm%Ss")" >> /home/devadmin/Desktop/trigger/samplepipeline2.txt
         else 
             echo "Deploying new application..."
             kubectl run pipeline-demo2 --replicas=2 --image=sarahlaw007/sample-web-app2:"\$tag" --port=80
             kubectl expose deployment pipeline-demo2 --type=NodePort --name=pipeline-demo2-service
-            echo "Application created: /$(date "+%Yy%mm%dd%Hh%Mm%Ss")" > Desktop/trigger/samplepipeline2.txt
+            echo "Application created: /$(date "+%Yy%mm%dd%Hh%Mm%Ss")" > /home/devadmin/Desktop/trigger/samplepipeline2.txt
 
         fi
 
