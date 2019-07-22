@@ -32,6 +32,4 @@ steps:
     sshEndpoint: 'sshTry1'
     runOptions: 'inline'
     inline: |
-      cd home/devadmin/Desktop/deployCodeADO
-                  rm -rf buildDeploy.sh
-                  touch something.txt
+      ls
