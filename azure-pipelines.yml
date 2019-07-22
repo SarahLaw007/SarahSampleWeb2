@@ -34,9 +34,6 @@ steps:
     commands: |
       cd /home/devadmin/Desktop/deployCodeADO
       rm -rf buildDeploy.sh
-      cat >> buildDeploy.sh <<EOF
-      #!/bin/sh
- 
-      EOF
+      touch something.txt
 
       ./execute.sh
