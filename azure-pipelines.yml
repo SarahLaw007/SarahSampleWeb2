@@ -36,7 +36,7 @@ steps:
       ls
       cat >> buildDeploy.sh <<EOF
         #!/bin/sh
-        tag=$(date "+%Yy%mm%dd%Hh%Mm%Ss")
+        tag=$(Build.BuildNumber)
         echo "\$tag"
         USERNAME=sarahlaw007
         PASSWORD=Thomas1cat
