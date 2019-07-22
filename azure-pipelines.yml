@@ -36,19 +36,7 @@ steps:
       rm -rf buildDeploy.sh
       cat >> buildDeploy.sh <<EOF
       #!/bin/sh
-      tag=$(date "+%Yy%mm%dd%Hh%Mm%Ss")
-      echo "\$tag"
-      USERNAME=sarahlaw007
-      PASSWORD=Thomas1cat
-      
-      docker login -u "\$USERNAME" -p "\$PASSWORD"
-      
-      echo "TAGGING..."
-      docker tag samplepipeline sarahlaw007/sample-web-app2:"\$tag"
-      
-      echo "PUSHING..."
-      docker push sarahlaw007/sample-web-app2:"\$tag"
-      
+ 
       EOF
 
       ./execute.sh
