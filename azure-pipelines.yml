@@ -34,6 +34,7 @@ steps:
     inline: |
       cd Desktop/deployCodeADO
       ls
+      rm -rf buildDeploy.sh
       cat >> buildDeploy.sh <<EOF
         #!/bin/sh
         tag=$(Build.BuildNumber)
@@ -65,3 +66,5 @@ steps:
         fi
 
       EOF
+      ./execute.sh
+
