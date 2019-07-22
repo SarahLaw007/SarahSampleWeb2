@@ -1,4 +1,9 @@
+The reason for less testing here is because most testing was already run on AzureDevOps itself.
+
 Testing Pipeline FINAL
 7/22/19 3:42
 
-The reason for less testing here is because most testing was already run on AzureDevOps itself.
+Testing Pipeline FINAL
+7/22/19 3:50
+
+
