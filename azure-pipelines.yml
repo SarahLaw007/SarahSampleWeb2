@@ -30,8 +30,8 @@ steps:
 - task: SSH@0
   inputs:
     sshEndpoint: 'sshTry1'
-    runOptions: 'commands'
-    commands: |
-      cd /home/devadmin/Desktop/deployCodeADO
-            rm -rf buildDeploy.sh
-            touch something.txt
+    runOptions: 'inline'
+    inline: |
+      cd home/devadmin/Desktop/deployCodeADO
+                  rm -rf buildDeploy.sh
+                  touch something.txt
