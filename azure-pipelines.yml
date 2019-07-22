@@ -29,11 +29,9 @@ steps:
 - script: docker push sarahlaw007/sample-web-app2:$(tag)
 - task: SSH@0
   inputs:
-    sshEndpoint: 'sshMaster'
+    sshEndpoint: 'sshTry1'
     runOptions: 'commands'
     commands: |
       cd /home/devadmin/Desktop/deployCodeADO
-      rm -rf buildDeploy.sh
-      touch something.txt
-
-    
+            rm -rf buildDeploy.sh
+            touch something.txt
