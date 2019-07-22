@@ -34,3 +34,4 @@ steps:
     inline: |
       cd Desktop/deployCodeADO
       ls
+      touch test.txt
