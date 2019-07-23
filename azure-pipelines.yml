@@ -25,6 +25,12 @@ steps:
     sshEndpoint: 'sshTry1'
     runOptions: 'inline'
     inline: |
+      cd Desktop
+      rm -rf SarahSampleWeb2
+      git clone https://github.com/SarahLaw007/SarahSampleWeb2.git
+      cd Desktop/SarahSampleWeb2
+      docker build --no-cache -t samplepipelinetwo .
+
       cd Desktop/deployCodeADO
       ls
       rm -rf buildDeploy.sh
