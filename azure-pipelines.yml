@@ -27,6 +27,7 @@ steps:
     inline: |
       cd Desktop/deployCodeADO
       rm -rf buildImage.sh
+      rm -rf SarahSampleWeb2
       cat >> buildImage.sh <<EOF
       #!/bin/sh
       git clone https://github.com/SarahLaw007/SarahSampleWeb2.git
@@ -50,7 +51,7 @@ steps:
       docker login -u "\$USERNAME" -p "\$PASSWORD"
 
       echo "TAGGING..."
-      docker tag samplepipeline sarahlaw007/sample-web-app2:"\$tag"
+      docker tag samplepipelinetwo sarahlaw007/sample-web-app2:"\$tag"
 
       echo "PUSHING..."
       docker push sarahlaw007/sample-web-app2:"\$tag"
