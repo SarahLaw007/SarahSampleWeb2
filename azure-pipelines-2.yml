@@ -44,7 +44,7 @@ steps:
       tag=$(Build.BuildNumber)
       echo "\$tag"
       USERNAME=sarahlaw007
-      PASSWORD=Thomas1cat
+      PASSWORD=tobechanged1
 
       docker login -u "\$USERNAME" -p "\$PASSWORD"
 
