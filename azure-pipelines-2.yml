@@ -12,7 +12,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   dockerId: sarahlaw007
-  pswd: Thomas1cat
+  pswd: tobechanged1
   tag: $(Build.BuildNumber)
 
 steps:
